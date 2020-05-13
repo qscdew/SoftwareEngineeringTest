@@ -1,6 +1,6 @@
 # SoftwareEngineeringTest
 
-####环境
+#### 环境
 +Ubuntu 5.4.0-6ubuntu1~16.04.10
 +MySQL5.7
 +Python 3.5.2【Django (2.2.6) pip (8.1.1) PyMySQL (0.9.3)】
