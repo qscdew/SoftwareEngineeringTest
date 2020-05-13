@@ -1,0 +1,21 @@
+{% extends "base_admin.html" %}
+{% block content %}
+    <title>新建用户</title>
+<div class="jumbotron jumbotron-fluid">
+
+<div class="container-fluid">
+<form method="post" action="{% url 'engineeradmin:new_user' %}">
+        {% csrf_token %}
+          用户名<input  class="form-control"id="username" name="username" type="text"/>
+        密码<input class="form-control"id="password" name="password" type="password"/>
+    姓名<input class="form-control" id="Name" name="Name" type="text" value=""/>
+    电话<input class="form-control" id="Tel" name="Tel" type="text" value=""/>
+
+{% csrf_token %}
+
+
+<input type="submit" class="btn btn-primary"value="确定">
+    {{ info }}
+</form>
+</div></div>
+{% endblock content %}

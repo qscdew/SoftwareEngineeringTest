@@ -1,0 +1,18 @@
+{% extends "base_user.html" %}
+{% block content %}
+
+    <title>月薪计算</title>
+<div class="jumbotron jumbotron-fluid">
+
+<div class="container-fluid">
+ <form method="post" action="{% url 'engineeruser:calc' %}">
+     工程师编号<input class="form-control" id="id" name="id" type="text"/>
+     月有效工作日天数<input class="form-control" id="days" name="days" type="text"/>
+     月效益<input  class="form-control"id="month" name="month" type="text"/>
+     月保险金<input class="form-control" id="month_ins" name="month_ins" type="text"/>
+     {% csrf_token %}
+     <input  class="btn btn-light" type="submit" value="查询">
+</form>
+{{ month_salary }}
+</div></div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+
+{% extends "base_admin.html" %}
+{% block content %}
+   <title>管理员后台</title>
+    <a href="{% url 'engineeradmin:new_user' %}">添加用户</a>
+<a href="{% url 'engineeradmin:delete_user' %}">删除用户</a>
+<a href="{% url 'engineeradmin:edit_user' %}">修改用户</a>
+<a href="{% url 'web:editpass' %}">修改密码</a>
+
+<a href="{% url 'web:logout' %}">退出登录</a>
+{% endblock content %}

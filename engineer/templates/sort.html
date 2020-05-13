@@ -1,0 +1,63 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <title>工程师信息排序</title>
+<div class="jumbotron jumbotron-fluid">
+
+<div class="container-fluid">
+<a class="btn btn-light" href="{% url 'engineeruser:sort_id' %}">按编号</a>
+<a class="btn btn-light" href="{% url 'engineeruser:sort_name' %}">按姓名</a>
+<a class="btn btn-light" href="{% url 'engineeruser:sort_workyears' %}">按工龄</a>
+{% if engineers is not null %}
+    {% if sort == "id" %}
+    <a class="btn btn-light" href={% url 'engineeruser:sort_id' %}>升序</a>
+    <a class="btn btn-light" href="{% url 'engineeruser:sort_id_reverse' %}">降序</a>
+        {% endif %}
+    {% if sort == "name" %}
+    <a class="btn btn-light" href={% url 'engineeruser:sort_name' %}>升序</a>
+    <a class="btn btn-light" href="{% url 'engineeruser:sort_name_reverse' %}">降序</a>
+        {% endif %}
+    {% if sort == "workyears" %}
+    <a class="btn btn-light" href={% url 'engineeruser:sort_workyears' %}>升序</a>
+    <a class="btn btn-light" href="{% url 'engineeruser:sort_workyears_reverse' %}">降序</a>
+        {% endif %}
+
+
+{% endif %}
+{% for engineer in engineers %}
+<ul class="list-group list-group-flush"> <li class="list-group-item">
+      <table >
+
+          <tbody>
+          <tr><td>编号:</td><td>{{ engineer.Id }}</td></tr>
+          <tr><td>姓名:</td><td>{{ engineer.Name }}</td></tr>
+          <tr><td>工龄：</td><td>{{ engineer.WorkYears }}</td></tr>
+          <tr><td>性别：</td><td>{% if engineer.Sex == 0 %}
+    女
+    {% else %}
+    男
+{% endif %}</td></tr>
+          <tr><td>学历：</td><td>{% if engineer.Degree == 0 %}
+    高中
+    {% elif engineer.Degree == 1  %}
+    学士
+    {% elif engineer.Degree == 2  %}
+    硕士
+    {% elif engineer.Degree == 3  %}
+    博士
+    {% elif engineer.Degree == 4  %}
+    其它
+{% endif %}</td></tr>
+          <tr><td>电话：</td><td>{{ engineer.Tel }}</td></tr>
+          <tr><td>籍贯：</td><td>{{ engineer.NativePlace }}</td></tr>
+          <tr><td>住址：</td><td>{{ engineer.Address }}</td></tr>
+          <tr><td>出生日期：</td><td>{{ engineer.Birthday }}</td></tr>
+          <tr><td>基本工资：</td><td>{{ engineer.Salary }}</td></tr>
+          </tbody>
+      </table>
+
+</li>
+</ul>
+
+{% endfor %}
+</div></div>
+{% endblock content %}

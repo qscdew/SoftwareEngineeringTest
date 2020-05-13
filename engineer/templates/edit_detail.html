@@ -1,0 +1,89 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <title>修改信息</title>
+
+<div class="jumbotron jumbotron-fluid">
+
+<div class="container-fluid">
+
+ <form method="post" action="{% url 'engineeruser:edit' %}">
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">编号</span>
+  </div>
+     <input  class="form-control"id="Id" name="Id" type="text" value="{{ info.Id }}"/></div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">姓名</span>
+  </div>
+     <input  class="form-control"id="Name" name="Name" type="text" value="{{ info.Name }}"/>
+</div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">性别</span>
+  </div>
+{% if info.Sex == 0 %}
+    <input class="form-control" id="Sex" name="Sex" type="text" value="女"/>
+    {% else %}
+    <input  class="form-control"id="Sex" name="Sex" type="text" value="男"/>
+{% endif %}</div>
+ <div class="input-group  mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">生日</span>
+  </div>
+     <input class="form-control" id="Birthday" name="Birthday" type="text" value="{{ info.Birthday }}"/>
+ </div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">籍贯</span>
+  </div>
+     <input class="form-control" id="NativePlace" name="NativePlace" type="text" value="{{ info.NativePlace }}"/>
+ </div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">住址</span>
+  </div>
+     <input  class="form-control"id="Address" name="Address" type="text" value="{{ info.Address }}"/>
+ </div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">学历</span>
+  </div>
+{% if info.Degree == 0 %}
+   <input  class="form-control"id="Degree" name="Degree" type="text" value="高中"/>
+    {% elif info.Degree == 1  %}
+    <input  class="form-control"id="Degree" name="Degree" type="text" value="学士"/>
+    {% elif info.Degree == 2  %}
+    <input  class="form-control"id="Degree" name="Degree" type="text" value="硕士"/>
+    {% elif info.Degree == 3  %}
+    <input  class="form-control"id="Degree" name="Degree" type="text" value="博士"/>
+    {% elif info.Degree == 4  %}
+    <input  class="form-control"id="Degree" name="Degree" type="text" value="其它"/>
+{% endif %}
+ </div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">工龄</span>
+  </div>
+<input  class="form-control"id="WorkYears" name="WorkYears" type="text" value="{{ info.WorkYears }}"/>
+ </div>
+     <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">电话</span>
+  </div>
+     <input class="form-control" id="Tel" name="Tel" type="text" value="{{ info.Tel }}"/>
+     </div>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">基本工资</span>
+  </div>
+         <input class="form-control" id="Salary" name="Salary" type="text" value="{{ info.Salary }}"/>
+ </div>
+ {% csrf_token %}
+
+
+<input type="submit" class="btn btn-primary"value="确定修改">
+
+ </form>
+</div></div>
+{% endblock content %}
