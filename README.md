@@ -15,3 +15,4 @@ python manage.py createsuperuser
 python manage.py runserver 0:8088
 访问 http://localhost:8088
 
+test
